@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#check if a commit was provided
+if [  -z "$1" ]; then
+	echo "Error: No commit message provided"
+	echo "Usuage: ./git_auto 'Your commit message'"
+	exit 1
+fi
+
+#Add all changes to staging area
+git add .
+
+#Commit with the provided message
+git commit -m "$1"
+
+#push the changes to remote repository
+git push
+
+#inform the user that the operation was successful
+echo "Changes have been added, comitted, and pushed successfully"
